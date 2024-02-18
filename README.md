@@ -114,6 +114,9 @@ Algunos se preguntarán....y esto qué...Pues es magia pura porque después del 
 - Cuando se crea una instancia de una clase, Python automáticamente pasa la instancia recién creada al método `__init__` como el primer argumento. Este argumento se recibe en el parámetro `self`.
 - Para cualquier método de instancia, el objeto sobre el cual se llama el método se pasa automáticamente como el primer argumento, y se recibe en `self`.
 
+### Métodos
+Una clase no solo tiene atributos (características) sino también métodos (comportamientos), estos métodos se definen como funciones dentro de la estructura de la clase. Ya se vió el primer método importante, el inicializador, existen unos cuantos más, pero de momento cualquier funcionalidad que se le quiera atribuir a la clase, es tan simple como agregar más métodos en su interior.
+
 ```mermaid
 classDiagram
     class Point {
@@ -147,3 +150,58 @@ print(point.x, point.y)
 point.reset()
 print(point.x, point.y)
 ```
+
+#### Objetos como argumentos...
+Como se vio todo en Python son objetos, de manera que los métodos de una clase y la clase en sí pueden recibir argumentos tipo objeto.
+
+```mermaid
+classDiagram
+    class Point {
+      +str definition
+      +int x
+      +int y
+      +__init__(x, y)
+      +reset()
+      +move(x, y)
+      +compute_distance(point)
+    }
+```
+
+```python
+class Point:
+    definition: str = "Entidad geometrica abstracta que representa una ubicación en un espacio."
+    def __init__(self, x: float=0, y: float=0):
+        self.x = x
+        self.y = y
+    def move(self, new_x: float, new_y: float):
+        self.x = new_x
+        self.y = new_y
+    def reset(self):
+        self.x = 0
+        self.y = 0
+    def compute_distance(self, point)-> float:
+        distance = ((self.x - point.x)**2+(self.y - point.y)**2)**(0.5)
+        return distance
+
+first_point = Point(x=1, y=1)
+second_point = Point(x=2, y=2)
+# should be root of 2 (?)
+print(first_point.compute_distance(second_point))
+```
+
+**Ejercicio:**
+Defina una clase siguiendo la siguiente estructura:
+```mermaid
+classDiagram
+    class Person {
+      +str specie
+      +int age
+      +str name
+      +greet()
+      +is_older_than(Person)
+    }
+```
+ - *specie*: Class attribute
+ - *age*, *name*: Instance attributes
+ - greet(): should print-> <name>, is gretting you!
+ - is_older_than(Person)->bool: Dtermine if the instance person is older than the argument person.
