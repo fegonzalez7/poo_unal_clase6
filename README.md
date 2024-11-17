@@ -223,3 +223,19 @@ classDiagram
  - *age*, *name*: Instance attributes
  - greet(): should print-> <name>, is gretting you!
  - is_older_than(Person)->bool: Dtermine if the instance person is older than the argument person.
+
+----
+
+### Info adicional
+- [Clases - ref de Python](https://docs.python.org/3/tutorial/classes.html) 
+- [Clases y objetos en Python](https://realpython.com/python3-object-oriented-programming/) 
+- [POO principles in Python - Super Post](https://medium.com/@aserdargun/advanced-oop-in-python-a5f6130da291) 
+- [POO with spiderman memes](https://medium.com/@bdov_/https-medium-com-bdov-python-this-is-an-object-that-is-an-object-everything-is-an-object-fff50429cd4b) 
+
+
+
+
+
+
+
+
